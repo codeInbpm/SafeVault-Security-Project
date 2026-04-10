@@ -20,7 +20,8 @@ jobs:
 
     - name: Restore
       # 使用 ** 递归搜索，不管项目在哪层文件夹都能找到
-      run: dotnet restore **/SafeVault.Web.csproj
+      run: dotnet restore SafeVault.sln
+
 
     - name: Build
       # 同样使用通配符指向具体的 csproj
