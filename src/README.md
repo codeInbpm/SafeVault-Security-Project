@@ -1,4 +1,14 @@
+
 # SafeVault Security Project Submission
+
+Copilot Usage Summary:
+
+Security: I used Microsoft Copilot to generate regex patterns for input validation and to identify SQL injection vulnerabilities in legacy code.
+
+Auth: Copilot assisted in setting up the JWT authentication middleware and defining Role-Based Access Control (RBAC) policies.
+
+Debugging: When the build failed, Copilot helped identify missing NuGet packages and corrected the namespace mismatches in my controllers.
+
 
 ## 1. Identified Vulnerabilities
 - **SQL Injection**: Found in the database query logic where user input was directly concatenated.
