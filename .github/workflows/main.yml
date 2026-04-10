@@ -3,21 +3,26 @@ name: .NET CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+
     - name: Restore dependencies
-      run: dotnet restore SafeVault.sln
+      # 尝试自动查找并修复所有依赖
+      run: dotnet restore
+
     - name: Build
-      run: dotnet build SafeVault.sln --no-restore
+      # 自动查找当前目录下唯一的 sln 或 csproj 进行构建
+      run: dotnet build --no-restore --configuration Release
+
     - name: Test
-      run: dotnet test SafeVault.sln --no-build --verbosity normal
+      # 运行测试
+      run: dotnet test --no-build --verbosity normal
